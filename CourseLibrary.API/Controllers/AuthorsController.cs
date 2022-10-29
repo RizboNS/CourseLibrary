@@ -12,7 +12,7 @@ namespace CourseLibrary.API.Controllers
 {
     [ApiController]
     [Route("api/authors")]
-    public class AuthorsController: ControllerBase
+    public class AuthorsController : ControllerBase
     {
         private readonly ICourseLibraryRepository _courseLibraryRepository;
         private readonly IMapper _mapper;
@@ -26,6 +26,7 @@ namespace CourseLibrary.API.Controllers
         }
 
         [HttpGet()]
+        [HttpHead]
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
